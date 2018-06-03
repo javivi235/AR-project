@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/angel/Documents/AR-Project/arproject2.apk
+C:/Users/Angel/Documents/Unity/AR-project/arproject3.apk
 SceneListBegin?
 Assets/Scenes/MenuProyecto.unity
 Assets/Scenes/EscenaConstruccion.unity
@@ -8,7 +8,7 @@ Assets/Scenes/ARLoadscene.unity
 SceneListEnd?
 75cd0c6c744b9733ef29aa6c59ece2b1 Assembly-CSharp.dll:TMPro.Examples.VertexZoom
 c906602d9b43cc5e075f80e1d8ae7c79 Assembly-CSharp.dll:TMPro.Examples.Benchmark01_UGUI
-5543cbb22af824cd1740b3569fc88fdf Assembly-CSharp.dll:.ScriptAgregarObjeto
+801f3f59cf54fef34048119651dbfe7d Assembly-CSharp.dll:.ScriptAgregarObjeto
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cf455f7a806648c6ed4c7d3e3f8a0e03 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 13bdb7c23815c33a33b37b0ba8dd39be UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
