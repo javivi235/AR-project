@@ -49,7 +49,7 @@ public class Abrir : MonoBehaviour {
 	}
     	void open() {
 	GameObject Name = GameObject.Find("Name");
-        //Nombre nombre = Name.GetComponent<Nombre>();
+        Nombre nombre = Name.GetComponent<Nombre>();
 	if(Nombre.proyecto != ""){
 
 	SceneManager.LoadScene("EscenaConstruccion");
@@ -62,7 +62,7 @@ public class Abrir : MonoBehaviour {
     void delete(){
 	
 	GameObject Name = GameObject.Find("Name");
-        //Nombre nombre = Name.GetComponent<Nombre>();	
+        Nombre nombre = Name.GetComponent<Nombre>();	
 	File.Delete(Application.persistentDataPath + "/" + Nombre.proyecto + ".txt");
 	Destroy(GameObject.Find(Nombre.proyecto));
         //Nombre.proyecto = "";
@@ -76,8 +76,8 @@ public class Abrir : MonoBehaviour {
     void select (string name) {
 	
 	GameObject Name = GameObject.Find("Name");
-        //Nombre nombre = Name.GetComponent<Nombre>();
-        //Nombre.proyecto = name;
+        Nombre nombre = Name.GetComponent<Nombre>();
+        Nombre.proyecto = name;
         abrir.GetComponent<Button>().onClick.AddListener(delegate {open();});
 	borrar.GetComponent<Button>().onClick.AddListener(delegate { delete(); });
 	abrir.SetActive(true);

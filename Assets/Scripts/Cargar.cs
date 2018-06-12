@@ -14,7 +14,7 @@ public class Cargar : MonoBehaviour {
 		try
         {
             GameObject Name = GameObject.Find("Name");
-            //Nombre nombre = Name.GetComponent<Nombre>();
+            Nombre nombre = Name.GetComponent<Nombre>();
 	        Debug.Log("ARCHIVO A CARGAR: " + Nombre.proyecto);
             string path = Application.persistentDataPath + "/" + Nombre.proyecto +".txt";
             StreamReader reader = new StreamReader(path);

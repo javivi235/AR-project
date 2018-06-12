@@ -11,12 +11,12 @@ public class AgregarObjeto : MonoBehaviour {
     private GameObject target;
     private GameObject objeto;
 
-    public GameObject[] objetos;
+    private GameObject[] objetos;
     public Shader contorno;
-    public Shader noContorno;
-    public int numero;
-    public Renderer rend;
-    public Renderer rend2;
+    private Shader noContorno;
+    private int numero;
+    private Renderer rend;
+    private Renderer rend2;
 
     public GameObject menuPrincipal;
     public GameObject menuAgregar;
@@ -26,7 +26,6 @@ public class AgregarObjeto : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         target = GameObject.Find("ImageTarget");
-	    contorno = Shader.Find("Unlit/Contorno2");
         noContorno = Shader.Find("Standard");
         objetos = GameObject.FindGameObjectsWithTag("Obj");
         numero = -1;
@@ -63,18 +62,19 @@ public class AgregarObjeto : MonoBehaviour {
             {
                 if (Input.GetButton("BtnX"))
                 {
-                    float x = Input.GetAxis("Horizontal") * 0.01f;
-                    float y = Input.GetAxis("Vertical") * 0.01f;
+                    float x = Input.GetAxis("IzquierdaHorizontal") * 0.01f;
+                    float y = Input.GetAxis("IzquierdaVertical") * 0.01f;
+                    //float z = Input.GetAxis("DerechaVertical") * 0.01f;
                     objetos[numero].transform.Translate(new Vector3(x, y, 0));
                 }
                 if (Input.GetButton("BtnCirculo"))
                 {
-                    float x = Input.GetAxis("Horizontal") * 5f;
+                    float x = Input.GetAxis("IzquierdaHorizontal") * 5f;
                     objetos[numero].transform.Rotate(new Vector3(x, 0f, 0f));
                 }
                 if (Input.GetButton("BtnCuadrado"))
                 {
-                    float x = Input.GetAxis("Horizontal") * 0.3f;
+                    float x = Input.GetAxis("IzquierdaHorizontal") * 0.3f;
                     objetos[numero].transform.localScale += new Vector3(x, 0f, 0f);
                 }
             }
