@@ -6,6 +6,7 @@ public class Seleccionar : MonoBehaviour {
 
     // Use this for initialization
     public GameObject[] objetos;
+    public GameObject ejes;
     public Shader contorno;
     public Shader noContorno;
     public int numero;
@@ -14,6 +15,7 @@ public class Seleccionar : MonoBehaviour {
     
 
     void Start () {
+        ejes = GameObject.FindGameObjectWithTag("eje");
         contorno = Shader.Find("Unlit/Contorno2");
         noContorno = Shader.Find("Standard");
         objetos = GameObject.FindGameObjectsWithTag("Obj");
@@ -42,12 +44,16 @@ public class Seleccionar : MonoBehaviour {
             else
             {
                 numero -= 1;
+                objetos[numero].AddComponent<LineRenderer>();
                 rend = objetos[numero].GetComponent<Renderer>();
                 rend2 = objetos[numero + 1].GetComponent<Renderer>();
                 rend.material.shader = contorno;
                 rend2.material.shader = noContorno;
             }
             Debug.Log(rend.material.shader.name);
+            ejes.transform.SetParent(objetos[numero].transform, false);
+            ejes.transform.Translate(Vector3.zero);
+            ejes.transform.Rotate(Vector3.zero);
         }
         else if (Input.GetKeyDown("right"))
         {
