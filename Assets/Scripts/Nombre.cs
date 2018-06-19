@@ -6,6 +6,7 @@ public class Nombre : MonoBehaviour {
 
 	public static Nombre nombre;
 	public static string proyecto;
+	public static string userId;
 
 	void Awake(){
 	

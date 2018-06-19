@@ -67,14 +67,14 @@ InputManager:
     snap: 0
     invert: 0
     type: 0
-    axis: 0
+    axis: 2
     joyNum: 0
   - serializedVersion: 3
     m_Name: IzquierdaHorizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 10
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -90,7 +90,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 10
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -198,27 +198,11 @@ InputManager:
     axis: 2
     joyNum: 0
   - serializedVersion: 3
-    m_Name: BtnL2
+    m_Name: BtnR2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 6
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 0
-    dead: 0.5
-    sensitivity: 1
-    snap: 0
-    invert: 1
-    type: 0
-    axis: 2
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: BtnL2
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: joystick button 6
+    positiveButton: joystick button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0

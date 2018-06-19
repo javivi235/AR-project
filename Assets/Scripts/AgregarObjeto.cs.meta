@@ -3,7 +3,15 @@ guid: e0957fa8e38d9d2498ab0bdfc62e4788
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - modeloPared: {instanceID: 0}
+  - modeloPuerta: {instanceID: 0}
+  - modeloVentana: {instanceID: 0}
+  - ejes: {fileID: 1466084445601178, guid: 095ce55104a38884dbf0485fe1a71dce, type: 2}
+  - contorno: {instanceID: 0}
+  - menuPrincipal: {instanceID: 0}
+  - menuAgregar: {instanceID: 0}
+  - opcionBorrar: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

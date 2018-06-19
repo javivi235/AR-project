@@ -6,21 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ProyectMenu.unity
-    guid: 8973f68d67ed67949acb0061575383ac
-  - enabled: 0
-    path: Assets/Scenes/ARNewscene.unity
-    guid: 33e1354a1f6a4394daa6e2a577166c7a
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/Crearscene.unity
-    guid: 56e0dff0ec8829c45a1341eec52c0ab2
-  - enabled: 0
-    path: Assets/Scenes/ARLoadscene.unity
-    guid: 52b9886fa1d139248a75456f85e5fddc
+    path: Assets/Resources/Scenes/IniciarSesion.unity
+    guid: 284ac8190488e6a4ca77f70499090d1f
   - enabled: 1
-    path: Assets/Scenes/EscenaConstruccion.unity
+    path: Assets/Resources/Scenes/ProyectMenu.unity
+    guid: 8973f68d67ed67949acb0061575383ac
+  - enabled: 1
+    path: Assets/Resources/Scenes/EscenaConstruccion.unity
     guid: f76608f5e4eecec42bec7b18d8f95771
   m_configObjects: {}
