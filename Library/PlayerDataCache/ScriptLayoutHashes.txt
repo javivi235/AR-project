@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/angel/Documents/Unity/AR-project/buildit2.apk
+C:/Users/angel/Documents/Unity/AR-project/buildit4.apk
 SceneListBegin?
 Assets/Resources/Scenes/IniciarSesion.unity
 Assets/Resources/Scenes/ProyectMenu.unity
@@ -262,7 +262,7 @@ b11448bc44f49db3e26525de9acc4a98 TextMeshPro-2017.3-Editor.dll:TMPro.EditorUtili
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:TMPro.Examples.TeleType
 b2eb8cbb5793881e65dba317544e50c2 Assembly-CSharp.dll:TMPro.Examples.ShaderPropAnimator
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ChangeSettings
-ea603e8e4ab6530f0fd2d1cb3bd6094d Assembly-CSharp.dll:.AgregarObjeto
+75823592ee1c19b2cc3b91aa747d4ce8 Assembly-CSharp.dll:.AgregarObjeto
 76015de5fcb247eeb8df66c001d5a22d Assembly-CSharp.dll:TMPro.Examples.TMP_FrameRateCounter
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Cargar
 b8f04bdad423045528c67dfa4c3dca0d Assembly-CSharp.dll:TMPro.Examples.VertexShakeA
@@ -291,7 +291,7 @@ e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 aa9d1bd0cc771545f2ae1f63a6d0ed6a Assembly-CSharp.dll:TMPro.Examples.TMP_TextEventCheck
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MainMenu
-7e4977adf0ae2f75251b67602d67c378 Assembly-CSharp.dll:.ColaDescarga
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ColaDescarga
 9e0ef5bf862444b5dc48b5a99554ce7c UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension

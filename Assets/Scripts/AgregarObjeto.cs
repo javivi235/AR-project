@@ -29,12 +29,15 @@ public class AgregarObjeto : MonoBehaviour
 
 	public GameObject panelCrear;
 
+	private GameObject scrollbarObject;
+	private Scrollbar scrollbar;
+
     private bool menuActivado;
 	private bool opcionBorradoActivado;
 	private bool opcionAyudaActivada;
 	private bool objetosListados;
+	public Color c2 = new Color(1, 1, 1, 0);
 
-	// Use this for initialization
 	void Start()
     {
 		ejes = GameObject.FindGameObjectWithTag("Eje");
@@ -49,8 +52,7 @@ public class AgregarObjeto : MonoBehaviour
 		opcionAyudaActivada = false;
 		objetosListados = false;
     }
-
-	// Update is called once per frame
+	
 	void Update()
     {
 		if (Input.GetButtonDown("BtnL2") && !opcionAyudaActivada)
@@ -78,8 +80,8 @@ public class AgregarObjeto : MonoBehaviour
                 {
                     float x = Input.GetAxis("IzquierdaHorizontal") * 0.01f;
                     float y = Input.GetAxis("IzquierdaVertical") * 0.01f;
-                    //float z = Input.GetAxis("DerechaVertical") * 0.01f;
-                    objetos[numero].transform.Translate(new Vector3(x, 0, y));
+                    float z = Input.GetAxis("DerechaVertical") * 0.01f;
+                    objetos[numero].transform.Translate(new Vector3(x, z, y));
                 }
                 if (Input.GetButton("BtnCirculo"))
                 {
@@ -88,18 +90,24 @@ public class AgregarObjeto : MonoBehaviour
                 }
                 if (Input.GetButton("BtnCuadrado"))
                 {
-                    float x = Input.GetAxis("IzquierdaHorizontal") * 0.3f;
+                    float x = Input.GetAxis("IzquierdaHorizontal") * 0.005f;
                     objetos[numero].transform.localScale += new Vector3(x, 0f, 0f);
                 }
             }
         }
 		else
 		{
-
-			if (panelCrear.activeSelf && !objetosListados)
+			if (panelCrear.activeSelf)
 			{
-				ListarObjetos();
-				objetosListados = true;
+				scrollbarObject = GameObject.Find("Scrollbar");
+				scrollbar = scrollbarObject.GetComponent<Scrollbar>();
+				float m = Input.GetAxis("DerechaHorizontal") * 0.0001f;
+				scrollbar.value += m;
+				if (!objetosListados)
+				{
+					ListarObjetos();
+					objetosListados = true;
+				}
 			}
 		}
 
@@ -129,11 +137,13 @@ public class AgregarObjeto : MonoBehaviour
 	{
 		UnityEngine.Object[] lista = Resources.LoadAll("Objetos", typeof(GameObject));
 
-		GameObject modeloBoton = (GameObject)(Resources.Load("BtnObjeto"));
+		GameObject modeloBoton = (GameObject)(Resources.Load("BotonObjeto"));
 		GameObject textoPrincipal = GameObject.Find("TextoPanelCrear");
 		GameObject modeloTexto = (GameObject)Resources.Load("NombreObjeto");
 
-		int cantidad = 1;
+		GameObject listaBotones = GameObject.Find("ListaObjetos");
+
+		int cantidad = 0;
 
 		foreach (var file in lista)
 		{
@@ -150,27 +160,24 @@ public class AgregarObjeto : MonoBehaviour
 				}
 			}
 
-			GameObject boton = Instantiate(modeloBoton, textoPrincipal.transform);
-			boton.transform.position -= new Vector3(0, (105 * cantidad++) - 35, 0);
+			GameObject boton = Instantiate(modeloBoton, listaBotones.transform);
+			boton.transform.position += new Vector3(300 * cantidad++, 0, 0);
 			boton.transform.SetParent(GameObject.Find("ListaBotones").transform);
 
-			Button botonui = boton.GetComponent<Button>();
-			botonui.onClick.AddListener(delegate { Instanciar(nombre); });
+			GameObject modelo = boton.transform.Find("Pared").gameObject;
+			GameObject newObj = Instantiate((GameObject)file) as GameObject;
+			newObj.transform.SetParent(boton.transform);
+			modelo.transform.parent = newObj.transform.parent;
+			newObj.transform.parent = modelo.transform.parent;
+			DestroyImmediate(modelo);
 
-			GameObject modeloObjeto = (GameObject)(Resources.Load("Objetos/" + nombre));
-
-			GameObject objeto = Instantiate(modeloObjeto, boton.transform);
-			objeto.transform.SetParent(boton.transform);
-			objeto.transform.position += new Vector3(-6, 0, 100);
-			objeto.transform.localScale = new Vector3(57, 10, 0);
-			objeto.transform.Rotate(new Vector3(0, -45, 0));
-
-			GameObject texto = Instantiate(modeloTexto, boton.transform);
-			texto.transform.SetParent(objeto.transform);
-			texto.transform.position += new Vector3(-35,34,100);
+			GameObject texto = boton.transform.Find("Nombre").gameObject;
 			Text txt = texto.GetComponent<Text>();
-			txt.text = nombre;
-			texto.transform.localScale = new Vector3(0.05f, 0.03f, 0);
+			txt.text = file.name;
+
+			GameObject botonUI = boton.transform.Find("ModeloBoton").gameObject;
+			Button componenteBoton = botonUI.GetComponent<Button>();
+			componenteBoton.onClick.AddListener(delegate { Instanciar(nombre); });
 		}
 	}
 
@@ -179,7 +186,6 @@ public class AgregarObjeto : MonoBehaviour
 		GameObject modeloObjeto = (GameObject)(Resources.Load("Objetos/" + nombre));
 
 		Vector3 posicion = target.transform.position;
-		posicion.y += 0.5f;
 
 		objeto = Instantiate(modeloObjeto, posicion, target.transform.rotation);
 		objeto.transform.SetParent(target.transform);
@@ -187,61 +193,14 @@ public class AgregarObjeto : MonoBehaviour
 		objetos = GameObject.FindGameObjectsWithTag("Obj");
 		numero = objetos.Length - 1;
 		rend = objetos[numero].GetComponent<Renderer>();
-		//rend2 = objetos[numero - 1].GetComponent<Renderer>();
+		if(numero >= 1)
+		{
+			rend2 = objetos[numero - 1].GetComponent<Renderer>();
+			rend2.material.shader = noContorno;
+		}
 		rend.material.shader = contorno;
-		//rend2.material.shader = noContorno;
-	}
-
-	/*
-    public void CrearPared()
-    {
-        Vector3 posicion = target.transform.position;
-        posicion.y += 0.5f;
-
-        objeto = Instantiate(modeloPared, posicion, target.transform.rotation);
-        objeto.transform.parent = target.transform;
-        objeto.tag = "Obj";
-        objetos = GameObject.FindGameObjectsWithTag("Obj");
-        numero = objetos.Length - 1;
-        rend = objetos[numero].GetComponent<Renderer>();
-        rend2 = objetos[numero - 1].GetComponent<Renderer>();
-        rend.material.shader = contorno;
-        rend2.material.shader = noContorno;
-
-    }*/
-	/*
-    public void CrearPuerta()
-    {
-        Vector3 posicion = target.transform.position;
-        posicion.y += 0.5f;
-
-        objeto = Instantiate(modeloPuerta, posicion, target.transform.rotation);
-        objeto.transform.parent = target.transform;
-        objeto.tag = "Obj";
-        objetos = GameObject.FindGameObjectsWithTag("Obj");
-        numero = objetos.Length - 1;
-        rend = objetos[numero].GetComponent<Renderer>();
-        rend2 = objetos[numero - 1].GetComponent<Renderer>();
-        rend.material.shader = contorno;
-        rend2.material.shader = noContorno;
-    }*/
-	/*
-    public void CrearVentana()
-    {
-        Vector3 posicion = target.transform.position;
-        posicion.y += 0.5f;
-
-        objeto = Instantiate(modeloVentana, posicion, target.transform.rotation);
-        objeto.transform.parent = target.transform;
-        objeto.tag = "Obj";
-        objetos = GameObject.FindGameObjectsWithTag("Obj");
-        numero = objetos.Length - 1;
-        rend = objetos[numero].GetComponent<Renderer>();
-        //rend2 = objetos[numero - 1].GetComponent<Renderer>();
-        rend.material.shader = contorno;
 		ejes.transform.SetParent(objetos[numero].transform, false);
-		//rend2.material.shader = noContorno;
-	}*/
+	}
 
 	public void Seleccionar()
     {
@@ -299,9 +258,7 @@ public class AgregarObjeto : MonoBehaviour
                     rend2.material.shader = noContorno;
                     Debug.Log(numero);
                 }
-
 				ejes.transform.SetParent(objetos[numero].transform, false);
-
 			}
 
         }
@@ -317,8 +274,6 @@ public class AgregarObjeto : MonoBehaviour
 	}
 	public void Salir() {
 		SceneManager.LoadScene("ProyectMenu");
-
-		//Application.Quit();
-
+		Application.Quit();
 	}
 }

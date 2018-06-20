@@ -159,10 +159,10 @@
     <None Include="Assets\Firebase\Plugins\Http\link.xml" />
     <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -357,37 +357,37 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.App">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Auth">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Database">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Platform">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Storage">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Assets/Firebase/Plugins/Firebase.Storage.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Firebase.Storage.dll</HintPath>
     </Reference>
     <Reference Include="Google.MiniJson">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
     </Reference>
     <Reference Include="Google.Sharpen">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Compat">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Assets/Parse/Plugins/Unity.Compat.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Parse/Plugins/Unity.Compat.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Tasks">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Assets/Parse/Plugins/Unity.Tasks.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Parse/Plugins/Unity.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-2017.3-Editor">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-2017.3-Runtime">
-      <HintPath>C:/Users/angel/Documents/Unity/AR-project/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
+      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/angel/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
