@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/angel/Documents/Unity/AR-project/buildit4.apk
+G:/Unity Proyects/BuildIt_1.0/BuildIt_v1.0Test.apk
 SceneListBegin?
 Assets/Resources/Scenes/IniciarSesion.unity
 Assets/Resources/Scenes/ProyectMenu.unity

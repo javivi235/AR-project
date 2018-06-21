@@ -5,6 +5,8 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
+using System.Threading.Tasks;
 
 public class AgregarObjeto : MonoBehaviour
 {
@@ -55,7 +57,21 @@ public class AgregarObjeto : MonoBehaviour
 	
 	void Update()
     {
-		if (Input.GetButtonDown("BtnL2") && !opcionAyudaActivada)
+
+        if (Input.GetButtonDown("BtnR2"))
+        {
+            if (opcionBorradoActivado)
+            {
+                opcionBorrar.SetActive(false);
+                opcionBorradoActivado = false;
+            }
+            else
+            {
+                opcionBorrar.SetActive(true);
+                opcionBorradoActivado = true;
+            }
+        }
+        if (Input.GetButtonDown("BtnL2") && !opcionAyudaActivada)
         {
 			if (menuActivado)
 			{
@@ -80,18 +96,38 @@ public class AgregarObjeto : MonoBehaviour
                 {
                     float x = Input.GetAxis("IzquierdaHorizontal") * 0.01f;
                     float y = Input.GetAxis("IzquierdaVertical") * 0.01f;
-                    float z = Input.GetAxis("DerechaVertical") * 0.01f;
+                    float z = 0;
+
+                    if (Input.GetButton("BtnR3"))
+                    {
+                        z = Input.GetAxis("IzquierdaVertical") * 0.01f;
+                    }
+                   
                     objetos[numero].transform.Translate(new Vector3(x, z, y));
                 }
                 if (Input.GetButton("BtnCirculo"))
                 {
                     float x = Input.GetAxis("IzquierdaHorizontal") * 5f;
-                    objetos[numero].transform.Rotate(new Vector3(x, 0f, 0f));
+                    float y = Input.GetAxis("IzquierdaVertical") * 5f;
+                    float z = 0;
+
+                    if (Input.GetButton("BtnR3"))
+                    {
+                        z = Input.GetAxis("IzquierdaVertical") * 5f;
+                    }
+                    objetos[numero].transform.Rotate(new Vector3(x, z, y));
                 }
                 if (Input.GetButton("BtnCuadrado"))
                 {
                     float x = Input.GetAxis("IzquierdaHorizontal") * 0.005f;
-                    objetos[numero].transform.localScale += new Vector3(x, 0f, 0f);
+                    float y = Input.GetAxis("IzquierdaVertical") * 0.005f;
+                    float z = 0;
+
+                    if (Input.GetButton("BtnR3"))
+                    {
+                        z = Input.GetAxis("IzquierdaVertical") * 0.005f;
+                    }
+                    objetos[numero].transform.localScale += new Vector3(x, z, y);
                 }
             }
         }
@@ -111,18 +147,6 @@ public class AgregarObjeto : MonoBehaviour
 			}
 		}
 
-		if (Input.GetButtonDown("BtnR2"))
-		{
-			if (opcionBorradoActivado) {
-				opcionBorrar.SetActive(false);
-				opcionBorradoActivado = false;
-			}
-			else
-			{
-				opcionBorrar.SetActive(true);
-				opcionBorradoActivado = true;
-			}
-		}
 
 		if(Input.GetButtonDown("BtnTriangulo")){
 			opcionAyudaActivada = !opcionAyudaActivada;
@@ -178,10 +202,42 @@ public class AgregarObjeto : MonoBehaviour
 			GameObject botonUI = boton.transform.Find("ModeloBoton").gameObject;
 			Button componenteBoton = botonUI.GetComponent<Button>();
 			componenteBoton.onClick.AddListener(delegate { Instanciar(nombre); });
-		}
-	}
 
-	public void Instanciar(string nombre)
+
+
+
+		}
+
+
+        ///////////////////////////////////////////////
+        //int indice = 0;
+        //foreach (string nombre in ColaDescarga.nombres) {
+
+        //    GameObject boton1 = Instantiate(modeloBoton, listaBotones.transform);
+        //    boton1.transform.position += new Vector3(300 * cantidad++, 0, 0);
+        //    boton1.transform.SetParent(GameObject.Find("ListaBotones").transform);
+
+        //    GameObject texto = boton1.transform.Find("Nombre").gameObject;
+        //    Text txt = texto.GetComponent<Text>();
+        //    txt.text = nombre;
+
+        //    GameObject botonUI = boton1.transform.Find("ModeloBoton").gameObject;
+        //    Button componenteBoton = botonUI.GetComponent<Button>();
+        //    Debug.Log(nombre);
+        //    Debug.Log(ColaDescarga.extencion[indice]);
+        //    Debug.Log(ColaDescarga.codigo[indice]);
+        //    componenteBoton.onClick.AddListener(delegate { obtenerArchivo(nombre, "cubo", "figure"); });
+        //    indice++;
+
+        //}
+     
+
+
+
+
+    }
+
+    public void Instanciar(string nombre)
 	{
 		GameObject modeloObjeto = (GameObject)(Resources.Load("Objetos/" + nombre));
 
@@ -276,4 +332,60 @@ public class AgregarObjeto : MonoBehaviour
 		SceneManager.LoadScene("ProyectMenu");
 		Application.Quit();
 	}
+
+    void obtenerArchivo(string nombre, string extencion, string codigo)
+    {
+
+        Debug.Log("ARCHIVO BUSCADO: " + nombre + "&&" + codigo + "." + extencion);
+        Firebase.Storage.FirebaseStorage storage = Firebase.Storage.FirebaseStorage.DefaultInstance;
+        Firebase.Storage.StorageReference reference =
+        storage.GetReference(nombre + "&&" + codigo + "." + extencion);
+
+        reference.GetDownloadUrlAsync().ContinueWith((Task<Uri> linkDescarga) =>
+        {
+
+            if (!linkDescarga.IsFaulted && !linkDescarga.IsCanceled)
+            {
+
+                StartCoroutine(descargar(linkDescarga.Result.ToString(), nombre, extencion, codigo));
+
+            }
+
+        });
+
+    }
+
+    IEnumerator descargar(string link, string nombre, string extencion, string codigo)
+    {
+
+        //WWW www =  WWW.LoadFromCacheOrDownload("file:///" + Application.dataPath + "/AssetBundles/model.wolf", 1);
+        WWW www = WWW.LoadFromCacheOrDownload(link, 1);
+
+        while (!www.isDone)
+        {
+            Debug.Log(www.progress);
+            yield return null;
+        }
+
+        yield return www;
+        AssetBundle assetBundle = www.assetBundle;
+        Debug.Log(extencion + "&&" + codigo);
+        GameObject objeto = (assetBundle.LoadAsset(extencion + "&&" + codigo)) as GameObject;
+        objeto.tag = "Obj";
+        Instantiate(objeto);
+        objeto.transform.SetParent(target.transform);
+        objetos = GameObject.FindGameObjectsWithTag("Obj");
+        numero = objetos.Length - 1;
+        rend = objetos[numero].GetComponent<Renderer>();
+        if (numero >= 1)
+        {
+            rend2 = objetos[numero - 1].GetComponent<Renderer>();
+            rend2.material.shader = noContorno;
+        }
+        rend.material.shader = contorno;
+        ejes.transform.SetParent(objetos[numero].transform, false);
+
+
+    }
+
 }

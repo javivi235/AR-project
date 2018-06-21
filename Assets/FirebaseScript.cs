@@ -17,6 +17,7 @@ public class FirebaseScript : MonoBehaviour
 		FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(email.text, password.text).
 			ContinueWith((obj) =>
 			{
+                Debug.Log("Inicio de secion exitoso");
 				Nombre.userId = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
 							SceneManager.LoadScene("ProyectMenu");
 			});

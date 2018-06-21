@@ -22,7 +22,7 @@ public class ColaDescarga : MonoBehaviour
 	public static List<GameObject> descargables;
 	
 	// Use this for initialization
-	void Start()
+	void Awake()
 	{
 
 		nombres = new List<string>();
@@ -48,40 +48,18 @@ public class ColaDescarga : MonoBehaviour
 				Debug.Log("Datos encontrados");
 				DataSnapshot snapshot = listaDescargas.Result;
 				int indice = 0;
+                if (snapshot.Exists) {
+                    foreach (DataSnapshot snap in snapshot.Children)
+                    {
 
-				foreach (DataSnapshot snap in snapshot.Children)
-				{
-
-					Debug.Log("Encontrado: " + snap.Value);
-					Regex filtro = new Regex(@"\|\|\|");
-					string[] datos = filtro.Split(snap.Value.ToString());
-					nombres.Add(datos[0]);
-					extencion.Add(datos[1]);
-					codigo.Add(datos[2]);
-					obtenerArchivo(datos[0], datos[1], datos[2]);
-				}
-
-			}
-
-		});
-
-	}
-
-	void obtenerArchivo(string nombre, string extencion, string codigo)
-	{
-
-		Debug.Log("ARCHIVO BUSCADO: " + nombre + "&&" + codigo + "." + extencion);
-		Firebase.Storage.FirebaseStorage storage = Firebase.Storage.FirebaseStorage.DefaultInstance;
-		Firebase.Storage.StorageReference reference =
-		storage.GetReference(nombre + "&&" + codigo + "." + extencion);
-
-		reference.GetDownloadUrlAsync().ContinueWith((Task<Uri> linkDescarga) =>
-		{
-
-			if (!linkDescarga.IsFaulted && !linkDescarga.IsCanceled)
-			{
-
-				StartCoroutine(descargar(linkDescarga.Result.ToString(), nombre, extencion, codigo));
+                        Debug.Log("Encontrado: " + snap.Value);
+                        Regex filtro = new Regex(@"\|\|\|");
+                        string[] datos = filtro.Split(snap.Value.ToString());
+                        nombres.Add(datos[0]);
+                        extencion.Add(datos[1]);
+                        codigo.Add(datos[2]);
+                    }
+                }
 
 			}
 
@@ -89,24 +67,47 @@ public class ColaDescarga : MonoBehaviour
 
 	}
 
-	IEnumerator descargar(string link, string nombre, string extencion, string codigo)
-	{
+    void obtenerArchivo(string nombre, string extencion, string codigo)
+    {
 
-		//WWW www =  WWW.LoadFromCacheOrDownload("file:///" + Application.dataPath + "/AssetBundles/model.wolf", 1);
-		WWW www = WWW.LoadFromCacheOrDownload(link, 1);
+        Debug.Log("ARCHIVO BUSCADO: " + nombre + "&&" + codigo + "." + extencion);
+        Firebase.Storage.FirebaseStorage storage = Firebase.Storage.FirebaseStorage.DefaultInstance;
+        Firebase.Storage.StorageReference reference =
+        storage.GetReference(nombre + "&&" + codigo + "." + extencion);
 
-		while (!www.isDone)
-		{
-			Debug.Log(www.progress);
-			yield return null;
-		}
+        reference.GetDownloadUrlAsync().ContinueWith((Task<Uri> linkDescarga) =>
+        {
 
-		yield return www;
-		AssetBundle assetBundle = www.assetBundle;
-		descargables.Add((GameObject)assetBundle.LoadAsset(nombre + "&&" + codigo));
+            if (!linkDescarga.IsFaulted && !linkDescarga.IsCanceled)
+            {
 
-	}
+                StartCoroutine(descargar(linkDescarga.Result.ToString(), nombre, extencion, codigo));
 
+            }
 
+        });
+
+    }
+
+    IEnumerator descargar(string link, string nombre, string extencion, string codigo)
+    {
+
+        //WWW www =  WWW.LoadFromCacheOrDownload("file:///" + Application.dataPath + "/AssetBundles/model.wolf", 1);
+        WWW www = WWW.LoadFromCacheOrDownload(link, 1);
+
+        while (!www.isDone)
+        {
+            Debug.Log(www.progress);
+            yield return null;
+        }
+
+        yield return www;
+        AssetBundle assetBundle = www.assetBundle;
+        Debug.Log(extencion + "&&" + codigo);
+        GameObject go = (assetBundle.LoadAsset(extencion + "&&" + codigo)) as GameObject;
+
+        descargables.Add(go);
+
+    }
 
 }

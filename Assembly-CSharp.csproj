@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{292E4020-ACAC-C94F-5710-5801D8DB6889}</ProjectGuid>
+    <ProjectGuid>{EAEAA68E-4695-91FC-951C-CB46B93979C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -159,10 +159,10 @@
     <None Include="Assets\Firebase\Plugins\Http\link.xml" />
     <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -332,9 +332,6 @@
     <Reference Include="Unity.Locator">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Unity.Locator.dll</HintPath>
     </Reference>
-    <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -356,47 +353,50 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="Vuforia.UnityExtensions">
+      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="Firebase.App">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Auth">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Database">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Platform">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Storage">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Firebase.Storage.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Assets/Firebase/Plugins/Firebase.Storage.dll</HintPath>
     </Reference>
     <Reference Include="Google.MiniJson">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
     </Reference>
     <Reference Include="Google.Sharpen">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Compat">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Parse/Plugins/Unity.Compat.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Assets/Parse/Plugins/Unity.Compat.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Tasks">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/Parse/Plugins/Unity.Tasks.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Assets/Parse/Plugins/Unity.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-2017.3-Editor">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-2017.3-Runtime">
-      <HintPath>C:/Users/angel/Documents/Unity/github/AR-project/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
+      <HintPath>G:/Unity Proyects/BuildIt_1.0/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/angel/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/Dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/angel/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.1/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/Dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/angel/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Dell/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>
