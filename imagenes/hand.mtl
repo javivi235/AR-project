@@ -1,0 +1,26 @@
+# Blender MTL File: 'hand.blend'
+# Material Count: 2
+
+newmtl alt
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.170455 0.170455 0.170455
+Ke 0.160000 0.160000 0.160000
+Ni 1.000000
+d 0.954545
+illum 2
+map_Kd D:\baş\Yeni klasör\EL\1-2e.png
+map_Bump D:\\baş\\Yeni klasör\\EL\\1-2a.jpg
+
+newmtl üst
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.170455 0.170455 0.170455
+Ke 0.160000 0.160000 0.160000
+Ni 1.000000
+d 0.955000
+illum 2
+map_Kd D:\baş\Yeni klasör\EL\1-2e.png
+map_Bump -bm 0.076923 D:\\baş\\Yeni klasör\\EL\\1-2a.jpg
